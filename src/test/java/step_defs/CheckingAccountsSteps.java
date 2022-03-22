@@ -18,6 +18,8 @@ public class CheckingAccountsSteps {
 
     private Response authResponse;
     private Response response;
+
+
     @Given("^the admin user is authenticated$")
     public void the_admin_user_is_authenticated() {
         //
@@ -56,30 +58,46 @@ public class CheckingAccountsSteps {
     }
 
     @Then("^response status code should be '(\\d+)'$")
-    public void response_status_code_should_be(int statusCode) {
-            //assert response
+    public void response_status_code_should_be(int expectedStatusCode) {
+        Assert.assertEquals(expectedStatusCode, response.getStatusCode());
     }
 
     @Then("^the following should be the response payload$")
     public void the_following_should_be_the_response_payload(List<Map<String, String>> createAccountResponsePayload) {
          //assert each field
         //this is how you get your expected result
-        Assert.assertEquals(createAccountResponsePayload.get(0).get("name"), response.jsonPath().getString("name"));
-        System.out.println(createAccountResponsePayload.get(0).get("name"));
+        Assert.assertEquals(createAccountResponsePayload.get(0).get("name"),response.getBody().jsonPath().get("name"));
+
+        Assert.assertEquals(createAccountResponsePayload.get(0).get("currentBalance"), response.getBody().jsonPath().getString("currentBalance"));
+        Assert.assertEquals(createAccountResponsePayload.get(0).get("openingBalance"), response.getBody().jsonPath().getString("openingBalance"));
+
+
+
+//        Assert.assertEquals(createAccountResponsePayload.get(0).get("name"), response.jsonPath().getString("name"));
+//        System.out.println(createAccountResponsePayload.get(0).get("name"));
     }
 
     @Then("^the following should be the accountType response payload$")
     public void the_following_should_be_the_accountType_response_payload(List<Map<String, String>> accountTypeResponsePayload) {
-
+        Assert.assertEquals(accountTypeResponsePayload.get(0).get("code"), response.getBody().jsonPath().get("accountType.code"));
+        Assert.assertEquals(accountTypeResponsePayload.get(0).get("category"), response.getBody().jsonPath().get("accountType.category"));
+        Assert.assertEquals(accountTypeResponsePayload.get(0).get("name"), response.getBody().jsonPath().get("accountType.name"));
+        Assert.assertEquals(accountTypeResponsePayload.get(0).get("minDeposit"), response.getBody().jsonPath().getString("accountType.minDeposit"));
+        Assert.assertEquals(accountTypeResponsePayload.get(0).get("overdraftLimit"), response.getBody().jsonPath().getString("accountType.overdraftLimit"));
+        Assert.assertEquals(accountTypeResponsePayload.get(0).get("overdraftFee"), response.getBody().jsonPath().getString("accountType.overdraftFee"));
     }
 
     @Then("^the following should be the ownershipType response payload$")
     public void the_following_should_be_the_ownershipType_response_payload(List<Map<String, String>> accountOwnershipTypeResponsePayload) {
-
+        Assert.assertEquals(accountOwnershipTypeResponsePayload.get(0).get("code"), response.getBody().jsonPath().getString("ownershipType.code"));
+        Assert.assertEquals(accountOwnershipTypeResponsePayload.get(0).get("name"), response.getBody().jsonPath().getString("ownershipType.name"));
     }
 
     @Then("^the following should be the accountStanding response payload$")
     public void the_following_should_be_the_accountStanding_response_payload(List<Map<String, String>> accountStandingResponsePayload) {
+        Assert.assertEquals(accountStandingResponsePayload.get(0).get("code"), response.getBody().jsonPath().getString("accountStanding.code"));
+        Assert.assertEquals(accountStandingResponsePayload.get(0).get("name"), response.getBody().jsonPath().getString("accountStanding.name"));
+
 
     }
 

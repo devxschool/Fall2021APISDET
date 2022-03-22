@@ -21,17 +21,18 @@ Feature: CRUD Cheching account for specific user.
     Then response status code should be '200'
     And  the following should be the response payload
       | id  | name              | accountNumber | currentBalance | openingBalance |
-      | 152 | Lebron James Test | 486130153     | 25.00          | 25.00          |
-
+      | 152 | Lebron James Test | 486130153     | 25.0           | 25.0           |
     And the following should be the accountType response payload
       | id | code | category | name              | minDeposit | overdraftLimit | overdraftFee |
-      | 8  | SCK  | CHK      | Standard Checking | 25         | 25             | 10           |
+      | 8  | SCK  | CHK      | Standard Checking | 25.0       | 25.0           | 10.0         |
     And the following should be the ownershipType response payload
       | id | code | name       |
       | 17 | IND  | Individual |
     And the following should be the accountStanding response payload
       | id | code | name |
       | 19 | A1   | Open |
+
+
 
 
 #
