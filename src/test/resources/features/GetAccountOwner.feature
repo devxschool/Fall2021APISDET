@@ -12,3 +12,9 @@ Feature: Get a specific accounts owner
     And the following should be userProfile response
       | id | firstName | lastName | title | gender | ssn         | dob        | dom        | emailAddress   | homePhone    | mobilePhone  | workPhone    | address        | locality         | region | postalCode | country |
       | 76 | Nicole    | Smith    | Mrs.  | F      | 807-65-1926 | 02/13/1988 | 09/24/2021 | nsmith@demo.io | 842-462-8191 | 958-571-0065 | 230-584-2033 | 644 Sammy Pass | East Sheltonland | MI     | 52632      | US      |
+
+
+
+
+
+
