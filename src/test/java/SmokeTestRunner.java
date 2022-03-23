@@ -7,6 +7,6 @@ import org.junit.runner.RunWith;
         features = "classpath:features",
         glue = "step_defs"
 )
-public class SmokeRunner {
+public class SmokeTestRunner {
 
 }

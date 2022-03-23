@@ -8,6 +8,7 @@ public class Transaction {
     private String transactionTypeCode;
 
 
+
     public double getAmount() {
         return amount;
     }
