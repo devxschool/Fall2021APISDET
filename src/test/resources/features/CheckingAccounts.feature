@@ -1,4 +1,4 @@
-@functional
+@functional @regression
 Feature: CRUD Cheching account for specific user.
 
  ###Background is used for
@@ -11,8 +11,8 @@ Feature: CRUD Cheching account for specific user.
   #Data Table that goes under a specific step
   #goal of cucumber is to write extemely generic steps which can be reused for multiple scenarios with no code change
 
-  Background: get valid authentication bearer token
-    Given the admin user is authenticated
+#  Background: get valid authentication bearer token
+#    Given the admin user is authenticated
 
   Scenario: I should be able to create a new individual standard checking account with valid intro deposit
     When I send a the following create account payload

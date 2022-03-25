@@ -1,10 +1,10 @@
 Feature: Get a specific accounts owner
 
-  Background: get valid authentication bearer token
-    Given the admin user is authenticated
-
+#  Background: get valid authentication bearer token
+#    Given the admin user is authenticated
+    @smoke
   Scenario: Get existing checking account's owner
-    When User looks up for the owner of '168' account
+    When User looks up for the owner of '206' account
     Then response status code should be '200'
     Then the following should be the response payload of GetOwner endpoint
       | id | username       | enabled | accountNonExpired | accountNonLocked | credentialsNonExpired |
